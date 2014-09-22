@@ -11,8 +11,21 @@ Public Class Form1
         Dim st1 As String = txtFirstNum.Text
         Dim st2 As String = txtSecondNum.Text
 
+        If Not (IsNumeric(st1) And IsNumeric(st2)) Then
+
+            MessageBox.Show("Please type numbers")
+            Return
+        End If
+
+
         num1 = CDbl(st1)
         num2 = CDbl(st2)
+
+        If Not ((num1 >= 0) And (num2 >= 0)) Then
+            MessageBox.Show("Please type non-negative numbers")
+            Return
+
+        End If
 
         Dim result As String
 
@@ -25,6 +38,10 @@ Public Class Form1
         End If
 
         txtResult.Text = result
+
     End Sub
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
